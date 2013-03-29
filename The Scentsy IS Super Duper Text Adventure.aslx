@@ -1,0 +1,691 @@
+<!--Saved by Quest 5.3.4762.29157-->
+<asl version="530">
+  <include ref="English.aslx" />
+  <include ref="Core.aslx" />
+  <game name="The Scentsy IS Super Duper Text Adventure">
+    <gameid>1253f6ed-6173-479b-b38e-162dfda446d8</gameid>
+    <version>1.0</version>
+    <firstpublished>2013</firstpublished>
+    <showscore />
+    <showhealth />
+    <gridmap />
+    <defaultfont>Arial, Helvetica, sans-serif</defaultfont>
+    <defaultbackground>Black</defaultbackground>
+    <defaultforeground>White</defaultforeground>
+    <defaultlinkforeground>Cyan</defaultlinkforeground>
+    <menubackground>Black</menubackground>
+    <menuforeground>White</menuforeground>
+    <pov type="object">player</pov>
+    <onhealthzero type="script">
+      msg ("You died.")
+    </onhealthzero>
+  </game>
+  <object name="SuperKomarioBrothersPod">
+    <inherit name="editor_room" />
+    <alias>Super Komario Brothers Pod</alias>
+    <description>You sense that this is a place of great power and wisdom.</description>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <object name="player">
+      <inherit name="editor_object" />
+      <inherit name="editor_player" />
+      <inherit name="male" />
+    </object>
+    <exit alias="north" to="RadianceMachinePod">
+      <inherit name="northdirection" />
+    </exit>
+    <object name="SouthParkFigurines">
+      <inherit name="editor_object" />
+      <inherit name="plural" />
+      <alias>SouthPark figurines</alias>
+      <look>The SouthPark figurines are pretty cool. It looks as though someone has switch all of their heads around. Kenny's head and body are separated and there is some fake blood drawn on a post-it note. OMG, they killed Kenny!</look>
+      <take type="boolean">false</take>
+      <alt>figurines</alt>
+      <takemsg>KrisKo ninja kicks you in the face. "Don't take those! They are our source of power!"</takemsg>
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+    </object>
+    <object name="Jeff">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Jeff</alias>
+      <look>He is over at Aaron's desk discussing important programming related stuff. </look>
+    </object>
+    <object name="Hal">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <look>He is programming Apple mobile software.</look>
+      <alias>Hal</alias>
+    </object>
+    <object name="Joe">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <look>You look at Joe and realize that he's already looking at you. He has a "why don't you own an Apple computer?" look on his face.</look>
+      <alias>Joe</alias>
+    </object>
+    <object name="Kris">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <look>Fingers flying everywhere, it looks as though Kris is deprecating NetSteps code. You surmise this from the oddly large amount of times you witness him select and delete large blocks of code.</look>
+      <alias>Kris</alias>
+    </object>
+    <object name="Brian">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Brian</alias>
+    </object>
+    <object name="Aaron">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Aaron</alias>
+    </object>
+    <exit alias="east" to="KnightsWhoSayNiPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <exit alias="west" to="OpsTeamPod">
+      <inherit name="westdirection" />
+    </exit>
+    <exit alias="south" to="Hallway">
+      <inherit name="southdirection" />
+    </exit>
+    <object name="TV">
+      <inherit name="editor_object" />
+      <inherit name="switchable" />
+      <look>The TV is an old model, possibly 20 years old.</look>
+      <switchedondesc>It is currently showing an old western.</switchedondesc>
+      <switchedoffdesc>It is currently switched off.</switchedoffdesc>
+      <watch type="script">
+        if (IsSwitchedOn(TV)) {
+          msg ("You watch for a few minutes. As your will to live slowly ebbs away, you remember that you’ve always hated watching westerns.")
+        }
+        else {
+          msg ("You watch for a few minutes, thinking that the latest episode of ‘Big Brother’ is even more boring than usual. You then realize that the TV is in fact switched off.")
+        }
+      </watch>
+    </object>
+  </object>
+  <object name="RadianceMachinePod">
+    <inherit name="editor_room" />
+    <alias>Radiance Machine Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <exit alias="south" to="SuperKomarioBrothersPod">
+      <inherit name="southdirection" />
+    </exit>
+    <object name="Ken">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+      <alias>Ken</alias>
+    </object>
+    <object name="Michiel">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Michiel</alias>
+    </object>
+    <object name="JohnSpradlin">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>John Spradlin</alias>
+    </object>
+    <object name="Erik">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+    </object>
+    <object name="Heidi">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Heidi</alias>
+    </object>
+    <object name="ChrisN">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Chris N.</alias>
+    </object>
+    <object name="MattE">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Matt E.</alias>
+    </object>
+    <exit alias="east" to="ProjectManagerPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <object name="Window">
+      <inherit name="editor_object" />
+      <scenery />
+      <look>You peer out the window and notice a lovely fountain down on the front lawn.</look>
+      <lightsource />
+      <alias>window</alias>
+    </object>
+    <object name="FestivusPole">
+      <inherit name="editor_object" />
+      <alias>Festivus Pole</alias>
+      <take />
+    </object>
+  </object>
+  <object name="KnightsWhoSayNiPod">
+    <inherit name="editor_room" />
+    <alias>Knights Who Say Ni Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <description>Custom nameplates.</description>
+    <object name="Josh">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Josh</alias>
+    </object>
+    <object name="Brad">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Brad</alias>
+    </object>
+    <object name="Adam">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Adam</alias>
+    </object>
+    <object name="Nick">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Nick</alias>
+    </object>
+    <object name="Sean">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+    </object>
+    <object name="Eric">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Eric</alias>
+    </object>
+    <exit alias="west" to="SuperKomarioBrothersPod">
+      <inherit name="westdirection" />
+    </exit>
+    <exit alias="north" to="ProjectManagerPod">
+      <inherit name="northdirection" />
+    </exit>
+    <exit alias="south" to="QAPod">
+      <inherit name="southdirection" />
+    </exit>
+    <exit alias="east" to="RebelScrumPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <object name="ScabiesBugs">
+      <inherit name="editor_object" />
+      <inherit name="plural" />
+      <alias>Scabies Bugs</alias>
+      <take />
+      <takemsg>You carefully scoop up the Scabies Bugs (for some reason).</takemsg>
+    </object>
+    <object name="Fedora">
+      <inherit name="editor_object" />
+      <alias>fedora</alias>
+    </object>
+    <object name="AppleComputer">
+      <inherit name="editor_object" />
+      <alias>Apple computer</alias>
+    </object>
+  </object>
+  <object name="OpsTeamPod">
+    <inherit name="editor_room" />
+    <alias>Ops Team Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <exit alias="east" to="SuperKomarioBrothersPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <exit alias="south" to="Hallway">
+      <inherit name="southdirection" />
+    </exit>
+    <object name="Sani">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Sani</alias>
+    </object>
+    <object name="Mark">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Mark</alias>
+    </object>
+    <object name="WheatThins">
+      <inherit name="editor_object" />
+      <alias>Box of Wheat Thins</alias>
+      <take />
+    </object>
+    <object name="MortarPestle">
+      <inherit name="editor_object" />
+      <alias>Mortar and Pestle</alias>
+      <take />
+    </object>
+  </object>
+  <object name="RebelScrumPod">
+    <inherit name="editor_room" />
+    <alias>Rebel Scrum Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <exit alias="west" to="KnightsWhoSayNiPod">
+      <inherit name="westdirection" />
+    </exit>
+    <exit alias="north" to="BusinessAnalystPod">
+      <inherit name="northdirection" />
+    </exit>
+    <exit alias="south" to="Hallway">
+      <inherit name="southdirection" />
+    </exit>
+    <exit alias="east" to="SAPPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <object name="Kelly">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Kelly</alias>
+    </object>
+    <object name="BrentL">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Brent L.</alias>
+    </object>
+    <object name="Scar">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Scar</alias>
+    </object>
+    <object name="Scott">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Scott</alias>
+    </object>
+    <object name="Andy">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Andy</alias>
+    </object>
+    <object name="Greg">
+      <inherit name="editor_object" />
+      <alias>Greg</alias>
+    </object>
+    <object name="JoggingShoes">
+      <inherit name="editor_object" />
+      <inherit name="plural" />
+      <alias>Jogging Shoes</alias>
+      <take />
+    </object>
+    <object name="MiniKayak">
+      <inherit name="editor_object" />
+      <alias>mini kayak</alias>
+    </object>
+    <object name="NinjaSword">
+      <inherit name="editor_object" />
+      <alias>ninja sword</alias>
+    </object>
+    <object name="OldYeller">
+      <inherit name="editor_object" />
+      <alias>coffee machine named "Old Yeller"</alias>
+      <alt>coffee machine; machine</alt>
+    </object>
+    <object name="Crackers">
+      <inherit name="editor_object" />
+      <alias>crackers</alias>
+      <take />
+    </object>
+  </object>
+  <object name="ProjectManagerPod">
+    <inherit name="editor_room" />
+    <alias>Project Manager Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <exit alias="west" to="RadianceMachinePod">
+      <inherit name="westdirection" />
+    </exit>
+    <exit alias="south" to="KnightsWhoSayNiPod">
+      <inherit name="southdirection" />
+    </exit>
+    <exit alias="east" to="BusinessAnalystPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <object name="Window1">
+      <inherit name="editor_object" />
+      <scenery />
+      <look>You peer out the window and notice a lovely fountain down on the front lawn.</look>
+      <lightsource />
+      <alias>window</alias>
+    </object>
+    <object name="MattC">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Matt C</alias>
+    </object>
+    <object name="BrentB">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Brent B.</alias>
+      <look type="script">
+        if (not GetBoolean(BrentB, "hasCheese")) {
+          if (not GetBoolean(BrentB, "hasCrackers")) {
+            msg ("Brent is sitting in front of his rather large monitor muttering to himself while he clicks around in JIRA. He is not aware that you are near.")
+            SetObjectFlagOff (BrentB, "isAware")
+          }
+        }
+        if (GetBoolean(BrentB, "hasCheese")) {
+          if (GetBoolean(BrentB, "hasCrackers")) {
+            msg ("Brent is ravenously chomping down his cheese and crackers. He is completely oblivious to anyone and everything around him. Crumbs are flying all around. Some land on CJ.")
+            SetObjectFlagOff (BrentB, "isAware")
+          }
+        }
+      </look>
+      <useon type="scriptdictionary" />
+      <give type="scriptdictionary">
+        <item key="Cheese">
+          if (not GetBoolean(BrentB, "hasCheese")) {
+            msg ("You give the cheese to Brent. He says, \"Thank you!\"")
+            SetObjectFlagOn (BrentB, "hasCheese")
+          }
+        </item>
+        <item key="Crackers">
+          if (not GetBoolean(BrentB, "hasCrackers")) {
+            msg ("You give the crackers to Brent. He says, \"Well aren't you somethin'?\"")
+            SetObjectFlagOn (BrentB, "hasCrackers")
+          }
+        </item>
+      </give>
+    </object>
+    <object name="ChrisJ">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>CJ</alias>
+    </object>
+    <object name="HoHo">
+      <inherit name="editor_object" />
+      <alias>Emergency HoHo</alias>
+    </object>
+  </object>
+  <object name="BusinessAnalystPod">
+    <inherit name="editor_room" />
+    <alias>Business Analyst Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <exit alias="south" to="RebelScrumPod">
+      <inherit name="southdirection" />
+    </exit>
+    <exit alias="west" to="ProjectManagerPod">
+      <inherit name="westdirection" />
+    </exit>
+    <exit alias="east" to="SAPPod">
+      <inherit name="eastdirection" />
+    </exit>
+    <object name="Window2">
+      <inherit name="editor_object" />
+      <scenery />
+      <look>You peer out the window and notice a lovely fountain down on the front lawn.</look>
+      <lightsource />
+      <alias>window</alias>
+    </object>
+    <object name="Hannah">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Hannah</alias>
+    </object>
+    <object name="Lacy">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Lacy</alias>
+    </object>
+    <object name="Zach">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Zach</alias>
+    </object>
+    <object name="Rick">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Rick</alias>
+    </object>
+    <object name="Mike">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Mike</alias>
+    </object>
+    <object name="Cheri">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Cheri</alias>
+    </object>
+    <object name="JohnShaw">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>John Shaw</alias>
+    </object>
+    <object name="iPod">
+      <inherit name="editor_object" />
+      <take />
+    </object>
+    <object name="Julie">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Julie</alias>
+    </object>
+    <object name="Sign">
+      <inherit name="editor_object" />
+      <look><![CDATA[It says on it, "AWESOME happens here!" So <b>that's</b> where it happens- you've been wondering all of your life.]]></look>
+    </object>
+    <object name="RicksCalendar">
+      <inherit name="editor_object" />
+      <alias>Rick's calender</alias>
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+    </object>
+  </object>
+  <object name="SAPPod">
+    <inherit name="editor_room" />
+    <alias>SAP Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <grid_length type="int">2</grid_length>
+    <dark />
+    <exit alias="to Rebel Scrum Pod" to="RebelScrumPod">
+      <inherit name="westdirection" />
+    </exit>
+    <exit alias="south" to="Hallway">
+      <inherit name="southdirection" />
+    </exit>
+    <exit alias="to BA Pod" to="BusinessAnalystPod">
+      <inherit name="westdirection" />
+    </exit>
+    <object name="Window3">
+      <inherit name="editor_object" />
+      <inherit name="surface" />
+      <scenery />
+      <look>It's not very bright, as windows go.</look>
+      <lightsource />
+      <alias>window</alias>
+      <contentsprefix>on which there are</contentsprefix>
+      <hidechildren />
+      <lightstrength>strong</lightstrength>
+      <object name="PostItsOnWindow">
+        <inherit name="editor_object" />
+        <inherit name="plural" />
+        <scenery />
+        <alias>post-it notes</alias>
+        <take />
+      </object>
+    </object>
+    <object name="Stacia">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Stacia</alias>
+    </object>
+    <object name="Carma">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Carma</alias>
+    </object>
+    <object name="TBone">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>T-Bone</alias>
+    </object>
+    <object name="Jason">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Jason</alias>
+    </object>
+    <object name="LisaT">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>List T.</alias>
+    </object>
+    <object name="WellingtonV">
+      <inherit name="editor_object" />
+      <alias>Wellington the Duck flock formation</alias>
+      <take />
+    </object>
+    <object name="Twila">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Twila</alias>
+    </object>
+    <object name="Todd">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Todd</alias>
+    </object>
+    <object name="Cheese">
+      <inherit name="editor_object" />
+      <alias>brick of cheese</alias>
+      <take />
+      <look>The cheese is gourmet quality. A label on the side indicates that each tablespoon contains 1000 calories. Even touching this cheese may cause weight gain.</look>
+    </object>
+    <object name="LisaM">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Lisa M.</alias>
+    </object>
+    <object name="NormanL">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Norman</alias>
+    </object>
+    <object name="ChrisH">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Chris H.</alias>
+    </object>
+    <object name="ChrisG">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Chris G.</alias>
+    </object>
+    <object name="Steve">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Steve</alias>
+    </object>
+    <object name="Kim">
+      <inherit name="editor_object" />
+      <inherit name="namedfemale" />
+      <alias>Kim</alias>
+    </object>
+  </object>
+  <object name="QAPod">
+    <inherit name="editor_room" />
+    <alias>QA Pod</alias>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <object name="Trevor">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Trevor</alias>
+    </object>
+    <object name="Leighton">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Leighton</alias>
+    </object>
+    <object name="Robert">
+      <inherit name="editor_object" />
+      <inherit name="namedmale" />
+      <alias>Robert</alias>
+    </object>
+    <object name="MagneticBeads">
+      <inherit name="editor_object" />
+      <inherit name="plural" />
+      <alias>magnetic beads</alias>
+      <take />
+    </object>
+    <object name="Flour">
+      <inherit name="editor_object" />
+      <alias>flour</alias>
+      <weight type="int">500</weight>
+    </object>
+    <object name="Eggs">
+      <inherit name="editor_object" />
+      <inherit name="plural" />
+      <alias>eggs</alias>
+      <weight type="int">800</weight>
+      <look type="script">
+        msg ("A box of eggs, weighing " + eggs.weight + " grams.")
+      </look>
+    </object>
+    <object name="Sugar">
+      <inherit name="editor_object" />
+      <alias>sugar</alias>
+      <weight type="int">200</weight>
+    </object>
+    <exit alias="north" to="KnightsWhoSayNiPod">
+      <inherit name="northdirection" />
+    </exit>
+    <exit alias="south" to="Hallway">
+      <inherit name="southdirection" />
+    </exit>
+  </object>
+  <object name="Hallway">
+    <inherit name="editor_room" />
+    <grid_width type="int">5</grid_width>
+    <exit alias="to Super Komario Brothers Pod" to="SuperKomarioBrothersPod">
+      <inherit name="northdirection" />
+    </exit>
+    <exit alias="to Ops Team Pod" to="OpsTeamPod">
+      <inherit name="northdirection" />
+    </exit>
+    <exit alias="to Rebel Scrum Pod" to="RebelScrumPod">
+      <inherit name="northdirection" />
+    </exit>
+    <exit alias="to SAP Pod" to="SAPPod">
+      <inherit name="northdirection" />
+    </exit>
+    <object name="SupplyCloset">
+      <inherit name="editor_object" />
+      <inherit name="openable" />
+      <alias>supply closet</alias>
+      <take />
+      <use type="boolean">false</use>
+    </object>
+    <exit alias="to QA Pod" to="QAPod">
+      <inherit name="northdirection" />
+    </exit>
+  </object>
+  <verb>
+    <property>watch</property>
+    <pattern>watch</pattern>
+    <defaultexpression>"You can't watch " + object.article + "."</defaultexpression>
+  </verb>
+  <command name="say">
+    <pattern>say #text#; shout #text#; yell #text#</pattern>
+    <unresolved type="string"></unresolved>
+    <script>
+      msg ("You say \"" + text + "\", but nobody replies.")
+    </script>
+  </command>
+  <command name="weigh">
+    <pattern>weigh #object#</pattern>
+    <script>
+      if (HasAttribute(object, "weight")) {
+        msg ("It weighs " + object.weight + " grams.")
+      }
+      else {
+        msg ("You can't weigh that.")
+      }
+    </script>
+  </command>
+  <command name="sayto">
+    <pattern>say #text_talk# to #object1#</pattern>
+    <unresolved>Say that to who?</unresolved>
+    <script>
+      switch (object1) {
+        case (Kris) {
+          msg ("You say \"" + text_talk + "\" to " + object1.name)
+          msg ("Kris dances.")
+        }
+      }
+    </script>
+  </command>
+</asl>
